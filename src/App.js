@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import {SpearlyClient, SpearlyProvider} from './component/index';
+import Content from './Content'
+
+const spearlyClient = SpearlyClient({
+  domain: 'nh6zyt31q7gz',
+  apikey: '23b20723ef0ffdc1f0e123e8fb76cffeacac8ec8b9199ed3e384cc37cf2256b7',
+  apiVersion: 2,
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SpearlyProvider client={spearlyClient}>
+      <Content {...props}/>
+    </SpearlyProvider>
   );
 }
 
